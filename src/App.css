@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General Styling */
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+/* Game Container */
+.container {
+  text-align: center;
+  background: rgba(173, 166, 166, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Player Turn Message */
+h4 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Board Rows */
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+/* Individual Square */
+.sqr {
+  border: 2px solid #333;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  background: white;
+  transition: transform 0.2s ease-in-out, background 0.3s;
+}
+
+.sqr:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Buttons */
+button {
+  background: #ff6363;
+  border: none;
+  padding: 12px 24px;
   color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+  margin-top: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: #d9534f;
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
+/* Winner Message */
+.winner-message {
+  margin-top: 20px;
+  animation: fadeInScale 0.5s ease-in-out;
+}
+
+.winner-message h4 {
+  font-size: 28px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Animation for Winner Message */
+@keyframes fadeInScale {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: scale(0.8);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Style for the main heading */
+.rt {
+  font-size: 36px;
+  text-align: center;
+  color: #432f95;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Developer Credit */
+.xn {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 30px;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Smooth fade-in animation for h1 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    max-width: 95vw;
+  }
+
+  .sqr {
+    height: 80px;
+    width: 80px;
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .rt {
+    font-size: 28px;
+  }
+
+  .xn {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .sqr {
+    height: 70px;
+    width: 70px;
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .rt {
+    font-size: 24px;
+  }
+
+  .xn {
+    font-size: 12px;
   }
 }
